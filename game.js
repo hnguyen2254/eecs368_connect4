@@ -1,9 +1,12 @@
-
+//xoval determines which user is currently selecting
+//color count is a variable that counts the number of moves
 let colorcount = 0;
 let XOval = "";
 reset = false;
 
 let counter = 0;
+//connectboard is an array that contains the connect4 board
+//below the for loop is filling the array with initial values
 let connectboard = new Array(6); 
 for (let i = 0; i < 6; i++) 
 { 
@@ -17,7 +20,8 @@ for (let i = 0; i < 6; i++)
 }
 
 function game()
-{
+{   
+    //this if statement resets the game board by calling the reset function
     if(reset == true)
     {
         resetgame();
@@ -81,24 +85,6 @@ function check(w)//w is X or O input
 {
     //check the whole array for a connect four
     //horizontal check
-    /*for (let i = 0; i < 6; i++) 
-    {
-        let horizontal = 0;
-
-        for (let j = 0; j < 6; j++) 
-        {
-            if(w == connectboard[i][j].value.innerText && w == connectboard[i][j+1].value.innerText && connectboard[i][3].value.innerText == w)
-            {
-                horizontal++;
-            }
-        }
-        if(horizontal >= 3 )
-        {
-            alert("Connect 4 for team " + w + "!!! Horizontal Connect 4");
-            alert("Game will now be reset. Select desired column for new game and click submit.");
-            reset = true;
-        }
-    }*/
     for (let i = 0; i < 6; i++) 
     {
         for(let j = 0; j < 4; j++)
@@ -270,6 +256,7 @@ function check(w)//w is X or O input
 
 function resetgame()
 {
+    //resets move counter and gameboard...
     colorcount = 0;
     for(let i = 0; i < 6; i++)
     {
